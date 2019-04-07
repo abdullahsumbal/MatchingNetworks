@@ -1,10 +1,13 @@
+#!/bin/bash
+
+epochs=10
+
 n_way_list=(5 20)
 n_shot_list=(1 5)
 for n_way in "${n_way_list[@]}" #iter over n_ways_list
 do
   for n_shot in "${n_shot_list[@]}" # iter over n_shot_list
   do
-    [ $n_way -eq 20 - $n_shot -eq 5 ] && continue
     echo "====================================================================================="
     echo "                       Script for $n_way n_way and $n_shot n_shot                            "
     echo "-------------------------------------------------------------------------------------"
@@ -15,4 +18,3 @@ do
   done
 
 done
-
