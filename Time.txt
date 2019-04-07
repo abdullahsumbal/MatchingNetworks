@@ -2,4 +2,4 @@ epoch: 10
 5_way 1_shot: 6.22
 5_way 5_shot: 25.01
 20_way 1_shot: 18.56
-20 way 5 shot: long time > 1 hour
+20 way 5 shot: long time 2.5 hours
