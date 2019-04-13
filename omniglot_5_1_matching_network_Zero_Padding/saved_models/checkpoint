@@ -1,0 +1,6 @@
+model_checkpoint_path: "omniglot_5_1_matching_network_Zero_Padding_9.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_Zero_Padding_5.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_Zero_Padding_6.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_Zero_Padding_7.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_Zero_Padding_8.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_Zero_Padding_9.ckpt"

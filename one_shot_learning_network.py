@@ -172,19 +172,16 @@ class Classifier:
                 for idx, num_filters in enumerate(self.layer_sizes):
                     with tf.variable_scope('g_conv_{}'.format(idx)):
                         if idx == len(self.layer_sizes) - 1:
-                            outputs = tf.layers.conv2d(outputs, num_filters, [2, 2], strides=(1, 1),
-                                                       padding='VALID')
+                            outputs = tf.layers.conv2d(outputs, num_filters, [2, 2], strides=(1, 1), padding='VALID')
+                            # paddings = tf.constant([[1, 1,], [1, 1]])
+
                         else:
-                            outputs = tf.layers.conv2d(outputs, num_filters, [3, 3], strides=(1, 1),
-                                                               padding='VALID')
+                            outputs = tf.layers.conv2d(outputs, num_filters, [3, 3], strides=(1, 1), padding='VALID')
+                            # paddings = tf.constant([[1, 1,], [1, 1]])
                         outputs = leaky_relu(outputs)
-                        outputs = tf.contrib.layers.batch_norm(outputs, updates_collections=None,
-                                                                       decay=0.99,
-                                                                       scale=True, center=True,
-                                                                       is_training=training)
-                        outputs = max_pool(outputs, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1],
-                                                   padding='SAME')
-                        #outputs = tf.layers.dropout(outputs, rate=dropout_rate, training=training)
+                        # outputs = tf.contrib.layers.batch_norm(outputs, updates_collections=None,decay=0.99,scale=True, center=True,is_training=training)
+                        outputs = max_pool(outputs, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1],padding='SAME')
+                        # outputs = tf.layers.dropout(outputs, rate=dropout_rate, training=training)
 
             image_embedding = tf.contrib.layers.flatten(outputs)
 

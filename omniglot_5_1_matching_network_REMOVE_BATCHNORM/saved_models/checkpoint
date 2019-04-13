@@ -1,0 +1,6 @@
+model_checkpoint_path: "omniglot_5_1_matching_network_REMOVE_BATCHNORM_9.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_REMOVE_BATCHNORM_5.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_REMOVE_BATCHNORM_6.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_REMOVE_BATCHNORM_7.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_REMOVE_BATCHNORM_8.ckpt"
+all_model_checkpoint_paths: "omniglot_5_1_matching_network_REMOVE_BATCHNORM_9.ckpt"
