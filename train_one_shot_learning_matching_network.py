@@ -26,7 +26,8 @@ one_shot_omniglot, losses, c_error_opt_op, init = experiment.build_experiment(ar
                                                                               args.use_full_context_embeddings,
                                                                               full_context_unroll_k=
                                                                               args.full_context_unroll_k,
-                                                                              args=args)
+                                                                              args=args,
+                                                                              current_learning_rate=args.learning_rate)
 total_train_batches = args.total_iter_per_epoch
 total_val_batches = args.total_iter_per_epoch
 total_test_batches = args.total_iter_per_epoch
@@ -67,8 +68,8 @@ with tf.Session() as sess:
             total_train_c_loss_mean, total_train_c_loss_std, total_train_accuracy_mean, total_train_accuracy_std =\
                 experiment.run_training_epoch(total_train_batches=total_train_batches,
                                                                                 sess=sess)
-            print("Epoch {}: train_loss_mean: {}, train_loss_std: {}, train_accuracy_mean: {}, train_accuracy_std: {}"
-                  .format(e, total_train_c_loss_mean, total_train_c_loss_std, total_train_accuracy_mean, total_train_accuracy_std))
+            print("Epoch {}: train_loss_mean: {}, train_loss_std: {}, train_accuracy_mean: {}, train_accuracy_std: {} | total_train_batches: {}"
+                  .format(e, total_train_c_loss_mean, total_train_c_loss_std, total_train_accuracy_mean, total_train_accuracy_std, total_train_batches))
 
             total_val_c_loss_mean, total_val_c_loss_std, total_val_accuracy_mean, total_val_accuracy_std = \
                 experiment.run_validation_epoch(total_val_batches=total_val_batches,
@@ -111,4 +112,3 @@ with tf.Session() as sess:
                          -1, -1,
                          total_test_c_loss_mean, total_test_c_loss_std, total_test_accuracy_mean,
                          total_test_accuracy_std])
-
