@@ -54,6 +54,15 @@ python train_one_shot_learning_matching_network.py --batch_size 32 --experiment_
 
 ```
 
+## Results
+Our Results can be found on [this](https://mcgill-my.sharepoint.com/:f:/g/personal/muhammad_sumbal_mail_mcgill_ca/EiKQfrICLzlKvHpZUxID_HQBbvf0Dssw_81-ZVI_xRhADg?e=6nwhMG) oneDrive link.
+
+Here are some charts and tables of our results.
+![](images/batchnormdropout.JPG)
+![](images/batchsize.JPG)
+![](images/epochsvsaccuracy.JPG)
+![](images/timebatch.JPG)
+
 ## Features
 The code supports automatic checkpointing as well as statistics saving.
  It uses 1200 classes for training, 211 classes for testing and 211 classes for validation. We save the latest 5 trained models as well as keep track
