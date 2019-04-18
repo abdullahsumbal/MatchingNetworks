@@ -108,15 +108,29 @@ class DistanceNetwork:
         with tf.name_scope('distance-module' + name), tf.variable_scope('distance-module', reuse=self.reuse):
             eps = 1e-10
             similarities = []
+            print("support_set:",support_set.shape)
+            print("input_image:",input_image.shape)
             for support_image in tf.unstack(support_set, axis=0):
+                print("support_image:",support_image.shape)
                 sum_support = tf.reduce_sum(tf.square(support_image), 1, keep_dims=True)
+                print("sum_support:",sum_support.shape)
                 support_magnitude = tf.rsqrt(tf.clip_by_value(sum_support, eps, float("inf")))
                 dot_product = tf.matmul(tf.expand_dims(input_image, 1), tf.expand_dims(support_image, 2))
                 dot_product = tf.squeeze(dot_product, [1, ])
                 cosine_similarity = dot_product * support_magnitude
+                print("cosine_similarity:",cosine_similarity.shape)
+                ## my changes
+                # euclidean_similarity = tf.sqrt(tf.reduce_sum(tf.square(tf.subtract(support_image, input_image)), 1, keep_dims=True))
+                # print("euclidean_similarity", euclidean_similarity.shape)
+                # c = tf.square(input_image-support_image)
+                # d = tf.square(tf.rsqrt(input_image+support_image))
+                # e = tf.matmul(tf.expand_dims(c, 1), tf.expand_dims(d, 2))
+                # e = tf.reduce_sum(e, 1, keep_dims=True)
+                # similarities.append(tf.squeeze(e,[1, ]))
                 similarities.append(cosine_similarity)
 
         similarities = tf.concat(axis=1, values=similarities)
+        print("similarities:" ,similarities.shape)
         self.variables = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='distance-module')
 
         return similarities

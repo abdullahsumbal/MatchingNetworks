@@ -81,8 +81,8 @@ class ExperimentBuilder:
                                self.target_label: target_set_label[0], self.training_phase: True,
                                self.learning_rate: self.current_learning_rate})
 
-                iter_out = "train_loss: {}, train_accuracy: {}| Learning rate {}".format(c_loss_value, acc, self.current_learning_rate)
-                pbar.set_description(iter_out)
+                # iter_out = "train_loss: {}, train_accuracy: {}| Learning rate {}".format(c_loss_value, acc, self.current_learning_rate)
+                # pbar.set_description(iter_out)
 
                 pbar.update(1)
                 total_train_c_loss.append(c_loss_value)
