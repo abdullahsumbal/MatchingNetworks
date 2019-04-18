@@ -1,6 +1,0 @@
-model_checkpoint_path: "omniglot_5_1_matching_network_fce_true_9.ckpt"
-all_model_checkpoint_paths: "omniglot_5_1_matching_network_fce_true_5.ckpt"
-all_model_checkpoint_paths: "omniglot_5_1_matching_network_fce_true_6.ckpt"
-all_model_checkpoint_paths: "omniglot_5_1_matching_network_fce_true_7.ckpt"
-all_model_checkpoint_paths: "omniglot_5_1_matching_network_fce_true_8.ckpt"
-all_model_checkpoint_paths: "omniglot_5_1_matching_network_fce_true_9.ckpt"

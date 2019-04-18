@@ -1,6 +1,0 @@
-model_checkpoint_path: "omniglot_20_1_matching_network_9.ckpt"
-all_model_checkpoint_paths: "omniglot_20_1_matching_network_5.ckpt"
-all_model_checkpoint_paths: "omniglot_20_1_matching_network_6.ckpt"
-all_model_checkpoint_paths: "omniglot_20_1_matching_network_7.ckpt"
-all_model_checkpoint_paths: "omniglot_20_1_matching_network_8.ckpt"
-all_model_checkpoint_paths: "omniglot_20_1_matching_network_9.ckpt"

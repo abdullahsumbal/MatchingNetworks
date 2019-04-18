@@ -16,7 +16,7 @@ class ExperimentBuilder:
         self.data = data
 
     def build_experiment(self, batch_size, classes_per_set, samples_per_class, fce, args, full_context_unroll_k=5,
-                         num_gpus=1, data_augmentation=True):
+                         num_gpus=1, data_augmentation=True, current_learning_rate=1e-03):
 
         """
 
@@ -39,7 +39,7 @@ class ExperimentBuilder:
         self.target_label = tf.placeholder(tf.int32, [num_gpus, batch_size], 'target_label')
         self.training_phase = tf.placeholder(tf.bool, name='training-flag')
         self.dropout_rate = tf.placeholder(tf.float32, name='dropout-prob')
-        self.current_learning_rate = 1e-03
+        self.current_learning_rate = current_learning_rate
         self.learning_rate = tf.placeholder(tf.float32, name='learning-rate-set')
         self.args = args
         self.one_shot_omniglot = MatchingNetwork(batch_size=batch_size, support_set_images=self.support_set_images,
@@ -81,15 +81,15 @@ class ExperimentBuilder:
                                self.target_label: target_set_label[0], self.training_phase: True,
                                self.learning_rate: self.current_learning_rate})
 
-                iter_out = "train_loss: {}, train_accuracy: {}".format(c_loss_value, acc)
-                pbar.set_description(iter_out)
+                # iter_out = "train_loss: {}, train_accuracy: {}| Learning rate {}".format(c_loss_value, acc, self.current_learning_rate)
+                # pbar.set_description(iter_out)
 
                 pbar.update(1)
                 total_train_c_loss.append(c_loss_value)
                 total_train_accuracy.append(acc)
                 self.total_train_iter += 1
                 if self.total_train_iter % 2000 == 0:
-                    self.current_learning_rate /= 2
+                    self.current_learning_rate /= self.args.learning_decay
                     print("change learning rate", self.current_learning_rate)
 
         total_train_c_loss_mean = np.mean(total_train_c_loss)

@@ -3,6 +3,8 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser(description='Welcome to the DAGAN training and inference system')
     parser.add_argument('--batch_size', nargs="?", type=int, default=32, help='Batch_size for experiment')
+    parser.add_argument('--learning_rate', nargs="?", type=float, default=0.001, help='learning_rate for experiment')
+    parser.add_argument('--learning_decay', nargs="?", type=float, default=2, help='learning_decay for experiment')
     parser.add_argument('--experiment_title', nargs="?", type=str, default="experiment-title", help='Experiment name')
     parser.add_argument('--continue_from_epoch', nargs="?", type=int, default=-1, help='Continue from checkpoint of epoch')
     parser.add_argument('--dropout_rate_value', type=float, default=0.3, help='Dropout_rate_value')
